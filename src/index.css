@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Share+Tech+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Shamate Styles */
+@layer utilities {
+  .shamate-border-double {
+    border-style: double;
+  }
+}
+
+/* Marquee Scrolling animation */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 25s linear infinite;
+}
+
+/* CRT Scanlines and Glowing Screen Filter */
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  aspect-ratio: auto;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.85;
+}
+
+/* Text pulse animation */
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 4px #FF00FF, 0 0 10px #FF00FF/50; }
+  50% { text-shadow: 0 0 12px #FF00FF, 0 0 20px #FF00FF; }
+}
+
+.glowing-magenta {
+  animation: textGlow 2s infinite ease-in-out;
+}
+
+@keyframes greenGlow {
+  0%, 100% { text-shadow: 0 0 4px #00FF00, 0 0 8px #00FF00/50; }
+  50% { text-shadow: 0 0 10px #00FF00, 0 0 18px #00FF00; }
+}
+
+.glowing-green {
+  animation: greenGlow 2.5s infinite ease-in-out;
+}
+
+/* Hide scrollbars but preserve functionality */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF00FF;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF00;
+}
