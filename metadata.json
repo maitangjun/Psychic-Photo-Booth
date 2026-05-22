@@ -1,0 +1,8 @@
+{
+  "name": "杀马特命理大头贴",
+  "description": "赛博葬爱家族灵魂重构道场：上传照片重构赛博杀马特大头贴，获取超现实非主流命理批注。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
